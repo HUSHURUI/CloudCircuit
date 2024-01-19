@@ -1,4 +1,4 @@
-module Basic#这里放《电路》教材中的基本组件
+#module Basic#这里放《电路》教材中的基本组件
 
 using ModelingToolkit, DifferentialEquations
 
@@ -15,18 +15,4 @@ include("components/VCC.jl")
 include("components/VCV.jl")
 include("components/CCC.jl")
 include("components/CCV.jl")
-
-
-export t, ∂
-export Resistor
-export ConstantVoltage
-export Capacitor
-export Ground
-export Pin
-export ConstantCurrent
-export VCC
-export VCV
-export CCC
-export CCV
-
-end
+#

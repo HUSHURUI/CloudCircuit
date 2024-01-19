@@ -1,6 +1,4 @@
-include("../Basic.jl")#两个点表示上一级目录，一个点表示当前目录
-using .Basic #导入模块
-using ModelingToolkit, DifferentialEquations
+include("../Basic.jl")
 @named R1 = Resistor(; R=10)
 @named R2 = Resistor(; R=20)
 @named C1 = Capacitor(; C=5)
