@@ -32,6 +32,8 @@ sol = solve(prob, Rosenbrock23())#  除了Tsit5()之外，还有Rosenbrock23()�
 sol[C1.v]
 sol[R1.n.v]
 sol[C1.p.v]
+println(sol[C1.p.v])
 # 如果想查看函数图像，就执行下面的代码
 using Plots
-plot(sol[t], sol[C1.v])#plot 函数也是理解多重派发的好例子 具体怎么用直接问gpt
+plot(sol[t], sol[C2.p.v])#plot 函数也是理解多重派发的好例子 具体怎么用直接问gpt
+plot(sol[t], sol[C2.n.v])#plot 函数也是理解多重派发的好例子 具体怎么用直接问gpt

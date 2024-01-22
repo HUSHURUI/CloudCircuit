@@ -5,7 +5,7 @@ function Capacitor(; name, C=1.0)
         C = C
     end
     sts = @variables begin
-        v(t) = 1.0
+        v(t) = 0
     end
     eqs = [
         v ~ p.v - n.v
