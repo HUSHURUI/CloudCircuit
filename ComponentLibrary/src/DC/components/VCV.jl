@@ -4,15 +4,17 @@ function VCV(; name, gain=1.0)
   @named e1 = Pin()
   @named e2 = Pin()
   sts = @variables begin
-    u(t) = 0
+    v(t) = 1.0
+    i(t) = 1.0
   end
   ps = @parameters begin
     gain = gain
   end
   eqs = [
     0 ~ p.i + n.i
-    u ~ p.v - n.v
-    u ~ gain * (e1.u - e2.u)
+    v ~ p.v - n.v
+    v ~ gain * (e1.v - e2.v)
+    i ~ p.i
   ]
   return compose(ODESystem(eqs, t, sts, ps; name=name), p, n, e1, e2)
 end

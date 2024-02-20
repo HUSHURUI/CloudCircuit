@@ -1,4 +1,4 @@
-function ConstantVoltage(; name, V=1.0)
+function Battery(; name, V=1.0)
     @named p = Pin()
     @named n = Pin()
     ps = @parameters V = V
