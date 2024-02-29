@@ -1,8 +1,5 @@
-using ComponentLibrary
-using ComponentLibrary.DC
-using ModelingToolkit, DifferentialEquations
-using Plots
-
+include("../src/DC/DC.jl")
+#测试用的，不作为参赛展示
 @named R1 = Resistor(; R=10)
 @named R2 = Resistor(; R=20)
 @named C1 = Capacitor(; C=5)
@@ -26,11 +23,12 @@ u0 = [
     C2.v => 1.0
 ]
 tspan = (0, 10.0)
-prob = ODAEProblem(sys, u0, tspan)
-sol = solve(prob, Rosenbrock23())
+prob = ODEProblem(sys, u0, tspan)
+sol = solve(prob, Rodas4())
 sol[C1.v]
 sol[R1.n.v]
 sol[C1.p.v]
-plot(sol[t],sol[C1.v])
-
+# plot(sol[t], sol[C1.v])
+include("convertjson.jl")
+convertjson(sol,)
 @test sol.retcode == ReturnCode.Success

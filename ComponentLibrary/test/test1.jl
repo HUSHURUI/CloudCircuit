@@ -1,6 +1,6 @@
 include("../src/DC/DC.jl")
-using Plots
-# 一阶动态电路
+#using Plots
+# 一阶动态电路 带开关
 @named R1 = Resistor(; R=2)
 @named R2 = Resistor(; R=2)
 @named R3 = Resistor(; R=4)
@@ -8,9 +8,9 @@ using Plots
 @named R5 = Resistor(; R=2)
 @named Is = ConstantCurrent(; I=4)
 @named Us = ConstantVoltage(; V=12)
-@named C1 = Capacitor(; C=1.0e-9)
+@named C1 = Capacitor(; C=0.5)
 @named L1 = Inductor(; L=0.1)
-@named SW = Switch(; t0=5)
+@named SW = Switch(; t0=10)
 @named G = Ground()
 
 connections = [
@@ -28,9 +28,9 @@ u0 = [
     C1.v => 0.0
     L1.i => 0.0
 ]
-tspan = (0, 10.0)
-prob = ODAEProblem(sys, u0, tspan)
-sol = solve(prob, Rosenbrock23())
+tspan = (0, 20.0)
+prob = ODEProblem(sys, u0, tspan)
+sol = solve(prob, Rodas4())
 sol[C1.v]
 sol[R1.n.v]
 sol[C1.p.v]
