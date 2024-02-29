@@ -15,8 +15,8 @@ function Load(; name, P=1.0, Q=1.0)
         vb ~ p.vb
         ia ~ p.ia
         ib ~ p.ib
-        P ~ _mutiplyA(va, vb, ia, -ib)
-        Q ~ _mutiplyB(va, vb, ia, -ib)
+        P ~ _multiplyA(va, vb, ia, -ib)
+        Q ~ _multiplyB(va, vb, ia, -ib)
     ]
     return compose(ODESystem(eqs, t, sts, ps; name=name), p)
 end

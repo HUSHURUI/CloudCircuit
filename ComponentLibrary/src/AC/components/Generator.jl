@@ -15,8 +15,8 @@ function Generator(; name, Va=1.0, Vb=1.0)
         Vb ~ p.vb
         ia + p.ia ~ 0
         ib + p.ib ~ 0
-        P ~ _mutiplyA(Va, Vb, ia, -ib)
-        Q ~ _mutiplyB(Va, Vb, ia, -ib)
+        P ~ _multiplyA(Va, Vb, ia, -ib)
+        Q ~ _multiplyB(Va, Vb, ia, -ib)
     ]
     return compose(ODESystem(eqs, t, sts, ps; name=name), p)
 end

@@ -20,10 +20,10 @@ function Resistance(; name, R=1.0, X=1.0)
         ib ~ p.ib
         p.ia + n.ia ~ 0
         p.ib + n.ib ~ 0
-        va ~ _mutiplyA(R, X, ia, ib)
-        vb ~ _mutiplyB(R, X, ia, ib)
-        P ~ _mutiplyA(va, vb, ia, -ib)
-        Q ~ _mutiplyB(va, vb, ia, -ib)
+        va ~ _multiplyA(R, X, ia, ib)
+        vb ~ _multiplyB(R, X, ia, ib)
+        P ~ _multiplyA(va, vb, ia, -ib)
+        Q ~ _multiplyB(va, vb, ia, -ib)
     ]
     return compose(ODESystem(eqs, t, sts, ps; name=name), p, n)
 end
