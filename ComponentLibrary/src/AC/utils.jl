@@ -16,3 +16,6 @@ end
 function _multiplyB(a1, b1, a2, b2)
     return a2 * b1 + a1 * b2
 end
+
+@register_symbolic _multiplyA(a1, b1, a2, b2)
+@register_symbolic _multiplyB(a1, b1, a2, b2)
